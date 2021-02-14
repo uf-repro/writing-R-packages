@@ -1,22 +1,20 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# Github Repo Template for a Pkgdown Lesson
+# An Introduction to Writing R Packages
 
 <!-- badges: start -->
 
 [![GitHub Actions pkgdown
-workflow](https://github.com/uf-repro/lesson-template/workflows/pkgdown/badge.svg)](https://github.com/uf-repro/lesson-template/actions?query=workflow%3Apkgdown)
+workflow](https://github.com/uf-repro/writing-R-packages/workflows/pkgdown/badge.svg)](https://github.com/uf-repro/writing-R-packages/actions?query=workflow%3Apkgdown)
 
 <!-- badges: end -->
 
 ## Description
 
-This github repository serves as a template for a short-form workshop,
-lesson, or course to be shared in the form of a pkgdown website with
-slides rendered by xaringan. This description text for the package and
-lesson should be written in `README.Rmd`, which, when knit, will then
-update the package’s `DESCRIPTION` file.
+Are you reusing the same bits of code across different projects or want
+to share your methods with other researchers? This workshop will
+introduce writing custom R packages to accomplish both tasks\!
 
 ## Learning Outcomes
 

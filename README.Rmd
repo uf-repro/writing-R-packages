@@ -15,12 +15,14 @@ knitr::opts_chunk$set(
 
 ```{r, include = FALSE}
 
-lesson_title <- "Github Repo Template for a Pkgdown Lesson"
-lesson_description <- "This github repository serves as a template for a short-form workshop, lesson, or course to be shared in the form of a pkgdown website with slides rendered by xaringan. This description text for the package and lesson should be written in `README.Rmd`, which, when knit, will then update the package's `DESCRIPTION` file."
+lesson_title <- "An Introduction to Writing R Packages"
+lesson_description <- "Are you reusing the same bits of code across different projects or want to share your methods with other researchers? This workshop will introduce writing custom R packages to accomplish both tasks!"
 lesson_keywords <- c("Open Educational Resources", 
                      "Research Support Skills", 
                      "Version Control", 
-                     "Workshop")
+                     "Workshop", 
+                     "Software Development", 
+                     "R package")
 
 desc::desc_set(Title = lesson_title, 
                Description = lesson_description)
@@ -36,7 +38,7 @@ jsonlite::write_json(zenodo_json, ".zenodo.json",
 # `r lesson_title`
 
 <!-- badges: start -->
-[![GitHub Actions pkgdown workflow](https://github.com/uf-repro/lesson-template/workflows/pkgdown/badge.svg)](https://github.com/uf-repro/lesson-template/actions?query=workflow%3Apkgdown)
+[![GitHub Actions pkgdown workflow](https://github.com/uf-repro/writing-R-packages/workflows/pkgdown/badge.svg)](https://github.com/uf-repro/writing-R-packages/actions?query=workflow%3Apkgdown)
 
 
 <!-- badges: end -->
