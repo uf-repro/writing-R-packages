@@ -1,4 +1,4 @@
-Package: lesson.template
+Package: writingRPackages
 Title: An Introduction to Writing R Packages
 Version: 1.0.1
 Authors@R: 
@@ -23,3 +23,4 @@ Imports:
 learningOutcomes: * create working R packages with code and data
  * write documentation using `roxygen2`
  * describe additional package-related tools (e.g. `pkgdown`, `testthat`)
+URL: https://uf-repro.github.io/writing-R-packages/
