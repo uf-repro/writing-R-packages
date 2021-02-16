@@ -8,6 +8,8 @@
 [![GitHub Actions pkgdown
 workflow](https://github.com/uf-repro/writing-R-packages/workflows/pkgdown/badge.svg)](https://github.com/uf-repro/writing-R-packages/actions?query=workflow%3Apkgdown)
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4542545.svg)](https://doi.org/10.5281/zenodo.4542545)
+
 <!-- badges: end -->
 
 ## Description
