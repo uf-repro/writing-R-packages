@@ -126,40 +126,233 @@
 
 <div id="syllabus" class="section level1">
 
-<p>Hao Ye Health Science Center Libraries, University of Florida (updated: 2021-02-14)</p>
+<p>Hao Ye Health Science Center Libraries, University of Florida (updated: 2021-02-16)</p>
 <div id="intro" class="section level2">
 <h2 class="hasAnchor">
 <a href="#intro" class="anchor"></a>Intro</h2>
 <ul>
-<li>Motivations
+<li>Motivations R packages are the primary means of bundling R code and facilitate many use cases, including:
 <ul>
-<li>because</li>
+<li>re-using code or data across projects</li>
+<li>writing open source software</li>
+<li>creating reproducible analyses</li>
 </ul>
 </li>
 <li>Learning Outcomes By the end of the workshop, participants will be able to:
 <ul>
-<li>
+<li>create functional R packages</li>
+<li>write documentation using <code>roxygen2</code>
+</li>
+<li>describe additional package-related tools (e.g. <code>pkgdown</code>, <code>testthat</code>)</li>
 </ul>
 </li>
 </ul>
 </div>
-<div id="subheading" class="section level2">
+<div id="creating-r-packages" class="section level2">
 <h2 class="hasAnchor">
-<a href="#subheading" class="anchor"></a>Subheading</h2>
+<a href="#creating-r-packages" class="anchor"></a>Creating R Packages</h2>
 <ul>
-<li>Topic Description ## So what?
+<li>
+<p>Setup Before getting started, we want some tools that help make creating packages easier.</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"devtools"</span>, <span class="st">"roxygen2"</span>, 
+                   <span class="st">"testthat"</span>, <span class="st">"knitr"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+</li>
+<li>
+<p>Creating a new R package</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">devtools</span><span class="fu">::</span><span class="fu">create</span><span class="op">(</span><span class="st">"myDemoPkg"</span><span class="op">)</span></code></pre></div>
+<pre class="hljs remark-code">
+myDemoPkg
+├── .gitignore
+├── .Rbuildignore
+├── DESCRIPTION
+├── myDemoPkg.Rproj
+├── NAMESPACE
+└── R/
+</pre>
 <ul>
-<li>reason!</li>
-<li>another reason!
-<div class="figure">
-<img src="image.jpg" alt="Alt Text: A tan and white dog (retriever mix) is lying on a tile floor and looking up at the camera with his mouse open, seemingly happy. There is a food container on his body with the label 'Tzatziki' visible. (This is a visual pun on the dog's name, Falafel)" width="70%"><p class="caption">
-Falafel!
-</p>
-</div>
-<h2 id="thanks">Thanks</h2>
+<li>package names have to start with a letter and can only contain letters, numbers, and periods.</li>
+</ul>
+</li>
+<li>
+<p>What are these files?</p>
+<ul>
+<li>
+<code>.gitignore</code> tells git to NOT track certain files</li>
+<li>
+<code>.Rbuildignore</code> tells R to NOT include certain files when building the package</li>
+<li>
+<code>DESCRIPTION</code> contains basic metadata about the package</li>
+<li>
+<code>myDemoPkg.Rproj</code> is the RStudio project</li>
+<li>
+<code>NAMESPACE</code> lists the objects that are loaded with the package</li>
+<li>
+<code>R/</code> contains R function definitions</li>
+</ul>
+</li>
+<li>
+<p>Building the Package</p>
+<ul>
+<li>R Console</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install</span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<p>OR</p>
+<ul>
+<li>RStudio Build Pane <img src="rstudio_build.png" title="A cropped screenshot of the 'Build' Pane in the RStudio interface, showing a panel with tabs for 'Plots', 'Packages', 'Help, 'Build', and 'Viewer' on the left and buttons with the minimize and maximize icons on the right. The 'Build' tab is selected, showing 3 additional buttons at the top of the tab: 'Install and Restart' (with a hammer icon), 'Check' (with a checklist icon), and 'More' (with a gear icon and an arrow indicating a pulldown menu). There is a magenta oval around the 'Install and Restart' button." alt="A cropped screenshot of the 'Build' Pane in the RStudio interface, showing a panel with tabs for 'Plots', 'Packages', 'Help, 'Build', and 'Viewer' on the left and buttons with the minimize and maximize icons on the right. The 'Build' tab is selected, showing 3 additional buttons at the top of the tab: 'Install and Restart' (with a hammer icon), 'Check' (with a checklist icon), and 'More' (with a gear icon and an arrow indicating a pulldown menu). There is a magenta oval around the 'Install and Restart' button.">
 </li>
 </ul>
 </li>
+<li>
+<p>Fully Operational!</p>
+<ul>
+<li>The package can be built and installed.</li>
+<li>Next Steps:
+<ul>
+<li>syncing to GitHub</li>
+<li>adding DESCRIPTION info</li>
+<li>adding data and code</li>
+<li>adding documentation</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="syncing-to-github" class="section level2">
+<h2 class="hasAnchor">
+<a href="#syncing-to-github" class="anchor"></a>Syncing to GitHub</h2>
+<ul>
+<li>Why GitHub?
+<ul>
+<li>
+<p>Cloud-based backup of your new package</p>
+<ul>
+<li>private repos are only visible to whom you give access to</li>
+</ul>
+</li>
+<li>
+<p>Supports installation from GitHub</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"{username}/{repo}"</span><span class="op">)</span>
+<span class="co"># remotes::install_github("ha0ye/myDemoPkg")</span></code></pre></div>
+<ul>
+<li>private repos, too, IF you have a personal access token (PAT) set up appropriately</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Setup (local)
+<ul>
+<li>Install Git and register a GitHub account - https://happygitwithr.com/install-intro.html</li>
+<li>Create a Git repo for the project and make an initial commit</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">usethis</span><span class="fu">::</span><span class="fu">use_git</span><span class="op">(</span><span class="op">)</span></code></pre></div>
+</li>
+<li>Setup (GitHub, via <code>usethis</code>)
+<ul>
+<li>Using a personal access token (PAT) that is setup with permissions to create repos</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">usethis</span><span class="fu">::</span><span class="fu">use_github</span><span class="op">(</span><span class="op">)</span></code></pre></div>
+OR</li>
+<li>Setup (GitHub, manual)
+<ul>
+<li>create a new repository
+<ul>
+<li>ideally same name as your package folder</li>
+<li>choose public or private</li>
+<li>SKIP initialization</li>
+</ul>
+</li>
+<li>RStudio, click “New Branch” on the “Git”Pane <img src="rstudio_new-branch.png" title="A cropped screenshot of the 'Git' Pane in the RStudio interface, showing a panel with tabs for 'Files', 'Connections', 'Git', and 'Tutorial'. The 'Git' tab is selected, showing another row of buttons, including a button with an icon of a white diamond adjoined to 2 purple rectangles by straight lines. This button is centered in a magenta oval." alt="A cropped screenshot of the 'Git' Pane in the RStudio interface, showing a panel with tabs for 'Files', 'Connections', 'Git', and 'Tutorial'. The 'Git' tab is selected, showing another row of buttons, including a button with an icon of a white diamond adjoined to 2 purple rectangles by straight lines. This button is centered in a magenta oval.">
+</li>
+</ul>
+</li>
+<li>Setup (GitHub, manual)
+<ul>
+<li>Click “Add Remote”
+<ul>
+<li>use <code>origin</code> for the “Remote Name”</li>
+<li>copy-paste URL from GitHub (shown after creating new repo) for “Remote URL” <img src="rstudio_add-remote.png" title="A cropped screenshot of the 'Add Remote' dialog box in the RStudio interface, showing text boxes labeled 'Remote Name' and 'Remote URL', and buttons for 'Add' and 'Cancel'. The 'Remote Name' text box is filled with 'origin' and the 'Remote URL' text box is filled with 'git@github.com:ha0ye/myDemoPkg.git'" alt="A cropped screenshot of the 'Add Remote' dialog box in the RStudio interface, showing text boxes labeled 'Remote Name' and 'Remote URL', and buttons for 'Add' and 'Cancel'. The 'Remote Name' text box is filled with 'origin' and the 'Remote URL' text box is filled with 'git@github.com:ha0ye/myDemoPkg.git'">
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Setup (GitHub, manual)
+<ul>
+<li>Choose the same “Branch Name” as your Git panel shows. <img src="rstudio_branch-name.png" title="A cropped screenshot of the 'Git' Pane in the RStudio interface, showing a panel with tabs for 'Files', 'Connections', 'Git', and 'Tutorial'. The 'Git' tab is selected, showing another row of buttons, including a text label of 'Master' with a pulldown menu icon. The screenshot also contains a dialog box, labeled 'New Branch', with a textbox 'Branch Name' also containing 'Master', a selection menu labeled 'Remote', a button to 'Add Remote...', a checked check box labeled 'Sync box with remote', and two buttons labeled 'Create' and 'Cancel'." alt="A cropped screenshot of the 'Git' Pane in the RStudio interface, showing a panel with tabs for 'Files', 'Connections', 'Git', and 'Tutorial'. The 'Git' tab is selected, showing another row of buttons, including a text label of 'Master' with a pulldown menu icon. The screenshot also contains a dialog box, labeled 'New Branch', with a textbox 'Branch Name' also containing 'Master', a selection menu labeled 'Remote', a button to 'Add Remote...', a checked check box labeled 'Sync box with remote', and two buttons labeled 'Create' and 'Cancel'.">
+</li>
+<li>Select “Overwrite” at the warning about a local branch already existing.</li>
+</ul>
+</li>
+<li>Demo</li>
+<li>Workflow
+<ul>
+<li>update the package</li>
+<li>commit the changes</li>
+<li>push to GitHub</li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="updating-description" class="section level2">
+<h2 class="hasAnchor">
+<a href="#updating-description" class="anchor"></a>Updating DESCRIPTION</h2>
+<ul>
+<li>Parts of a DESCRIPTION
+<ul>
+<li>package name</li>
+<li>1 sentence title</li>
+<li>version number</li>
+<li>package authors</li>
+<li>1 paragraph description</li>
+<li>license</li>
+<li>dependencies</li>
+</ul>
+</li>
+<li>Editing DESCRIPTION
+<ul>
+<li>most fields can be filled out by hand (just once)</li>
+<li>a license determines how you allow other people to use it
+<ul>
+<li>usethis has defaults built-in:</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">usethis</span><span class="fu">::</span><span class="fu">use_mit_license</span><span class="op">(</span><span class="op">)</span>  </code></pre></div>
+<ul>
+<li>see also https://choosealicense.com/</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Adding Dependencies
+<ul>
+<li>For functions other than those in the <code>base</code> package, the package needs to be listed as a dependency, and the package referred to by <code>{pkg}::{fun}</code>.</li>
+<li>The <code>use_package</code> function will add a package to the dependencies in <code>DESCRIPTION</code>.</li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">usethis</span><span class="fu">::</span><span class="fu">use_package</span><span class="op">(</span><span class="st">"utils"</span><span class="op">)</span></code></pre></div>
+</li>
+<li>DEMO</li>
+</ul>
+</div>
+<div id="data-and-code" class="section level2">
+<h2 class="hasAnchor">
+<a href="#data-and-code" class="anchor"></a>Data and Code</h2>
+</div>
+<div id="documentation" class="section level2">
+<h2 class="hasAnchor">
+<a href="#documentation" class="anchor"></a>Documentation</h2>
+</div>
+<div id="thanks" class="section level2">
+<h2 class="hasAnchor">
+<a href="#thanks" class="anchor"></a>Thanks</h2>
+<ul>
 <li>Let me know what content you’d like to see</li>
 <li>Contact me for additional questions or consultation requests!</li>
 <li>Check back in on the libguide for more modules and contact info:
