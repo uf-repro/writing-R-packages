@@ -62,7 +62,7 @@ R packages are the primary means of bundling R code and facilitate many use case
 # Learning Outcomes
 
 By the end of the workshop, participants will be able to:
-* create functional R packages
+* create working R packages
 * write documentation using `roxygen2`
 * describe additional package-related tools (e.g. `pkgdown`, `testthat`)
 
@@ -255,21 +255,140 @@ usethis::use_package("utils")
 ```
 
 ---
-class: middle, center
-
-# DEMO
-
----
 class: inverse, middle, center
 
 # Data and Code
+
+---
+# Code
+
+* Create functions in files within the `R/` folder.
+
+```{r, eval = FALSE}
+f <- function(df)
+{
+  names(df)
+}
+```
+
+---
+# Exporting functions
+
+* `NAMESPACE` needs to include the names of objects to be loaded alongside the package.
+* Adding a special comment allows us to call `devtools::document()` to modify `NAMESPACE`:
+```{r, eval = FALSE}
+#' @export
+f <- function(df)
+{
+  names(df)
+}
+```
+
+---
+# Adding datasets
+
+* Use `usethis::use_data()` to export a dataset to a file and add that file to the package:
+```{r, eval = FALSE}
+dat <- data.frame(x = 1:3, y = 5:7)
+usethis::use_data(dat) # no quotes
+```
 
 ---
 class: inverse, middle, center
 
 # Documentation
 
+---
+# roxygen2
 
+* R expects documentation to be written in a specific format, `.rd`, and stored in the `man/` folder
+  - this is a pain.
+--
+* `roxygen2` adopts the idea of `doxygen` for R:
+  - functions are documented in the comments immediately prior
+  - code and documentation are in the same location - easier to maintain consistency
+
+---
+# Example
+
+```{r, eval = FALSE}
+#' Get the column names of a data.frame
+#' @param df A data.frame
+#' @return a character vector
+#' @export
+f <- function(df)
+{
+  names(df)
+}
+```
+
+---
+# Data
+
+* Datasets can be documented, usually within `data.R`:
+```{r, eval = FALSE}
+#' Example data.frame
+#'
+#' @format A data frame with 3 rows and 2 variables:
+#' \describe{
+#'   \item{x}{some numbers}
+#'   \item{y}{some other numbers}
+#' }
+"dat"
+```
+
+---
+class: inverse, middle, center
+
+# Extras
+
+---
+# Some other useful add-ons
+
+* writing tests for your functions?  
+  check out [`testthat`](https://testthat.r-lib.org/)
+* want a nice website for your package?  
+  check out [`pkgdown`](https://testthat.r-lib.org/)
+* want tests and the pkgdown website to run automatically on github?
+  check out [github actions](https://github.com/r-lib/actions/tree/master/examples)
+```{r, eval = FALSE}
+usethis::use_github_action("check-release")
+```
+
+---
+class: inverse, middle, center
+
+# Research Compendia
+
+---
+# Research Compendium
+
+### Q: How do you share a data analysis reproducibly?
+--
+
+### A: Turn it into an R package!
+
+* write functions to do analysis
+* include data, or code to retrieve data
+* write-up workflow as a package vignette
+  - see https://r-pkgs.org/vignettes.html
+
+---
+# Benefits
+
+* Your project follows the common structure of an R package.
+  - dependencies have to be listed
+  - functions preferred over scripts
+  - tests are more naturally created
+* example - https://github.com/ha0ye/portalDS
+
+---
+# Summary
+
+* even simple packages can be handy
+  - shared code for your lab
+  - custom ggplot themes for yourself
+* structuring your work in packages promotes re-use and reproducibility
 
 ---
 # Thanks

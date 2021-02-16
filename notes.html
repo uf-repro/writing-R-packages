@@ -79,7 +79,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">lesson.template</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.0</span>
       </span>
     </div>
 
@@ -140,7 +140,7 @@
 </li>
 <li>Learning Outcomes By the end of the workshop, participants will be able to:
 <ul>
-<li>create functional R packages</li>
+<li>create working R packages</li>
 <li>write documentation using <code>roxygen2</code>
 </li>
 <li>describe additional package-related tools (e.g. <code>pkgdown</code>, <code>testthat</code>)</li>
@@ -338,21 +338,153 @@ OR</li>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">usethis</span><span class="fu">::</span><span class="fu">use_package</span><span class="op">(</span><span class="st">"utils"</span><span class="op">)</span></code></pre></div>
 </li>
-<li>DEMO</li>
 </ul>
 </div>
 <div id="data-and-code" class="section level2">
 <h2 class="hasAnchor">
 <a href="#data-and-code" class="anchor"></a>Data and Code</h2>
+<ul>
+<li>Code
+<ul>
+<li>Create functions in files within the <code>R/</code> folder.</li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">f</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">df</span><span class="op">)</span>
+<span class="op">{</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span>
+<span class="op">}</span></code></pre></div>
+</li>
+<li>Exporting functions
+<ul>
+<li>
+<code>NAMESPACE</code> needs to include the names of objects to be loaded alongside the package.</li>
+<li>Adding a special comment allows us to call <code>devtools::document()</code> to modify <code>NAMESPACE</code>:</li>
+</ul>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">#' @export</span>
+<span class="va">f</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">df</span><span class="op">)</span>
+<span class="op">{</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span>
+<span class="op">}</span></code></pre></div>
+</li>
+<li>Adding datasets
+<ul>
+<li>Use <code>usethis::use_data()</code> to export a dataset to a file and add that file to the package:</li>
+</ul>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, y <span class="op">=</span> <span class="fl">5</span><span class="op">:</span><span class="fl">7</span><span class="op">)</span>
+<span class="fu">usethis</span><span class="fu">::</span><span class="fu">use_data</span><span class="op">(</span><span class="va">dat</span><span class="op">)</span> <span class="co"># no quotes</span></code></pre></div>
+</li>
+</ul>
 </div>
 <div id="documentation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#documentation" class="anchor"></a>Documentation</h2>
-</div>
-<div id="thanks" class="section level2">
-<h2 class="hasAnchor">
-<a href="#thanks" class="anchor"></a>Thanks</h2>
 <ul>
+<li>
+<p>roxygen2</p>
+<ul>
+<li>R expects documentation to be written in a specific format, <code>.rd</code>, and stored in the <code>man/</code> folder
+<ul>
+<li>this is a pain.</li>
+</ul>
+</li>
+<li>
+<code>roxygen2</code> adopts the idea of <code>doxygen</code> for R:
+<ul>
+<li>functions are documented in the comments immediately prior</li>
+<li>code and documentation are in the same location - easier to maintain consistency</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Example</p>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">#' Get the column names of a data.frame</span>
+<span class="co">#' @param df A data.frame</span>
+<span class="co">#' @return a character vector</span>
+<span class="co">#' @export</span>
+<span class="va">f</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">df</span><span class="op">)</span>
+<span class="op">{</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span>
+<span class="op">}</span></code></pre></div>
+</li>
+<li>
+<p>Data</p>
+<ul>
+<li>Datasets can be documented, usually within <code>data.R</code>:</li>
+</ul>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">#' Example data.frame</span>
+<span class="co">#'</span>
+<span class="co">#' @format A data frame with 3 rows and 2 variables:</span>
+<span class="co">#' \describe{</span>
+<span class="co">#'   \item{x}{some numbers}</span>
+<span class="co">#'   \item{y}{some other numbers}</span>
+<span class="co">#' }</span>
+<span class="st">"dat"</span></code></pre></div>
+</li>
+</ul>
+</div>
+<div id="extras" class="section level2">
+<h2 class="hasAnchor">
+<a href="#extras" class="anchor"></a>Extras</h2>
+<ul>
+<li>Some other useful add-ons
+<ul>
+<li>writing tests for your functions?<br>
+check out <a href="https://testthat.r-lib.org/"><code>testthat</code></a>
+</li>
+<li>want a nice website for your package?<br>
+check out <a href="https://testthat.r-lib.org/"><code>pkgdown</code></a>
+</li>
+<li>want tests and the pkgdown website to run automatically on github? check out <a href="https://github.com/r-lib/actions/tree/master/examples">github actions</a>
+</li>
+</ul>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">usethis</span><span class="fu">::</span><span class="fu">use_github_action</span><span class="op">(</span><span class="st">"check-release"</span><span class="op">)</span></code></pre></div>
+</li>
+</ul>
+</div>
+<div id="research-compendia" class="section level2">
+<h2 class="hasAnchor">
+<a href="#research-compendia" class="anchor"></a>Research Compendia</h2>
+<ul>
+<li>Research Compendium ### Q: How do you share a data analysis reproducibly? ### A: Turn it into an R package!
+<ul>
+<li>write functions to do analysis</li>
+<li>include data, or code to retrieve data</li>
+<li>write-up workflow as a package vignette
+<ul>
+<li>see https://r-pkgs.org/vignettes.html</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Benefits
+<ul>
+<li>Your project follows the common structure of an R package.
+<ul>
+<li>dependencies have to be listed</li>
+<li>functions preferred over scripts</li>
+<li>tests are more naturally created</li>
+</ul>
+</li>
+<li>example - https://github.com/ha0ye/portalDS</li>
+</ul>
+</li>
+<li>Summary
+<ul>
+<li>even simple packages can be handy
+<ul>
+<li>shared code for your lab</li>
+<li>custom ggplot themes for yourself</li>
+</ul>
+</li>
+<li>structuring your work in packages promotes re-use and reproducibility ## Thanks</li>
+</ul>
+</li>
 <li>Let me know what content you’d like to see</li>
 <li>Contact me for additional questions or consultation requests!</li>
 <li>Check back in on the libguide for more modules and contact info:
