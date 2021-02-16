@@ -7,7 +7,7 @@
       "orcid": "0000-0002-8630-1458"
     }
   ],
-  "description": "R packages are a powerful way to share code and data across your individual projects, with colleagues, or even with the broader scientific community. They can also form the basis for Research Compendium to share data analysis work reproducibly. This workshop will introduce the basics of creating custom R packages for personal use and for sharing!",
+  "description": "R packages are a powerful way to share code and data across your individual projects, with colleagues, or even with the broader scientific community. They can also form the basis for a Research Compendium to share data analysis work reproducibly. This workshop will introduce the basics of creating custom R packages for personal use and for sharing!",
   "keywords": [
     "Open Educational Resources",
     "Research Support Skills",

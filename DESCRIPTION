@@ -7,7 +7,7 @@ Authors@R:
            role = c("aut", "cre"),
            email = "haoye@ufl.edu",
            comment = c(ORCID = "0000-0002-8630-1458"))
-Description: R packages are a powerful way to share code and data across your individual projects, with colleagues, or even with the broader scientific community. They can also form the basis for Research Compendium to share data analysis work reproducibly. This workshop will introduce the basics of creating custom R packages for personal use and for sharing!
+Description: R packages are a powerful way to share code and data across your individual projects, with colleagues, or even with the broader scientific community. They can also form the basis for a Research Compendium to share data analysis work reproducibly. This workshop will introduce the basics of creating custom R packages for personal use and for sharing!
 License: CC BY 4.0
 Encoding: UTF-8
 LazyData: true
