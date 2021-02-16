@@ -12,13 +12,18 @@ workflow](https://github.com/uf-repro/writing-R-packages/workflows/pkgdown/badge
 
 ## Description
 
-Are you reusing the same bits of code across different projects or want
-to share your methods with other researchers? This workshop will
-introduce writing custom R packages to accomplish both tasks\!
+R packages are a powerful way to share code and data across your
+individual projects, with colleagues, or even with the broader
+scientific community. They can also form the basis for Research
+Compendium to share data analysis work reproducibly. This workshop will
+introduce the basics of creating custom R packages for personal use and
+for sharing\!
 
 ## Learning Outcomes
 
 By the end of the workshop, participants will be able to:
 
-  - 
-## References
+  - create working R packages with code and data
+  - write documentation using `roxygen2`
+  - describe additional package-related tools (e.g. `pkgdown`,
+    `testthat`)

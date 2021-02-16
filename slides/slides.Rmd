@@ -62,9 +62,8 @@ R packages are the primary means of bundling R code and facilitate many use case
 # Learning Outcomes
 
 By the end of the workshop, participants will be able to:
-* create working R packages
-* write documentation using `roxygen2`
-* describe additional package-related tools (e.g. `pkgdown`, `testthat`)
+
+`r gsub("\n ", "\n", desc::desc_get("learningOutcomes"))`
 
 ---
 class: inverse, center, middle

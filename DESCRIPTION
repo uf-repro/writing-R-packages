@@ -1,13 +1,13 @@
 Package: lesson.template
 Title: An Introduction to Writing R Packages
-Version: 0.9.0
+Version: 1.0.0
 Authors@R: 
     person(given = "Hao",
            family = "Ye",
            role = c("aut", "cre"),
            email = "haoye@ufl.edu",
            comment = c(ORCID = "0000-0002-8630-1458"))
-Description: Are you reusing the same bits of code across different projects or want to share your methods with other researchers? This workshop will introduce writing custom R packages to accomplish both tasks!
+Description: R packages are a powerful way to share code and data across your individual projects, with colleagues, or even with the broader scientific community. They can also form the basis for Research Compendium to share data analysis work reproducibly. This workshop will introduce the basics of creating custom R packages for personal use and for sharing!
 License: CC BY 4.0
 Encoding: UTF-8
 LazyData: true
@@ -20,6 +20,6 @@ Imports:
     showtext,
     xaringan,
     xaringanthemer
-title: Github Repo Template for a Pkgdown Lesson
-Depends: 
-    R (>= 2.10)
+learningOutcomes: * create working R packages with code and data
+ * write documentation using `roxygen2`
+ * describe additional package-related tools (e.g. `pkgdown`, `testthat`)

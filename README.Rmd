@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 ```{r, include = FALSE}
 
 lesson_title <- "An Introduction to Writing R Packages"
-lesson_description <- "Are you reusing the same bits of code across different projects or want to share your methods with other researchers? This workshop will introduce writing custom R packages to accomplish both tasks!"
+lesson_description <- "R packages are a powerful way to share code and data across your individual projects, with colleagues, or even with the broader scientific community. They can also form the basis for Research Compendium to share data analysis work reproducibly. This workshop will introduce the basics of creating custom R packages for personal use and for sharing!"
 lesson_keywords <- c("Open Educational Resources", 
                      "Research Support Skills", 
                      "Version Control", 
@@ -49,10 +49,15 @@ jsonlite::write_json(zenodo_json, ".zenodo.json",
 
 ## Learning Outcomes
 
+```{r, include = FALSE}
+learning_outcomes <- c("create working R packages with code and data", 
+                       "write documentation using `roxygen2`",
+                       "describe additional package-related tools (e.g. `pkgdown`, `testthat`)")
+outcomes_text <- paste0("* ", learning_outcomes, collapse = "\n")
+desc::desc_set("learningOutcomes", outcomes_text)
+```
+
 By the end of the workshop, participants will be able to:
 
-* 
-
-## References
-
+`r outcomes_text`
 
