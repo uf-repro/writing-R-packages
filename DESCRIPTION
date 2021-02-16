@@ -1,6 +1,6 @@
 Package: lesson.template
 Title: An Introduction to Writing R Packages
-Version: 0.0.1
+Version: 0.9.0
 Authors@R: 
     person(given = "Hao",
            family = "Ye",
@@ -21,3 +21,5 @@ Imports:
     xaringan,
     xaringanthemer
 title: Github Repo Template for a Pkgdown Lesson
+Depends: 
+    R (>= 2.10)
