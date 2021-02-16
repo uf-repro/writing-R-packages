@@ -17,6 +17,11 @@
 * ["testthat"](https://testthat.r-lib.org/)
   - The `testthat` package by Hadley Wickham, simplifies the process of writing and running tests.
 
+## Related Tutorials
+
+* ["A Friendly Introduction to Github for Project Version Control"](https://uf-repro.github.io/friendly-github-intro/)
+  - Lesson materials from Hao Ye, introducing GitHub
+  
 ## Readings
 
 * ["R Packages"](https://r-pkgs.org/)

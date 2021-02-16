@@ -54,7 +54,7 @@ class: inverse, center, middle
 
 R packages are the primary means of bundling R code and facilitate many use cases, including:
 
-* re-using functions or data across projects
+* re-using code or data across projects
 * writing open source software
 * creating reproducible analyses
 
@@ -82,24 +82,194 @@ install.packages(c("devtools", "roxygen2",
 ```
 
 ---
-# Structure of an R package
-
-
-
----
 # Creating a new R package
 
-```{r}
-devtools::create("~/myDemoPkg")
+```{r, eval = FALSE}
+devtools::create("myDemoPkg")
 ```
-
-
+<pre class = "hljs remark-code">
+myDemoPkg
+├── .gitignore
+├── .Rbuildignore
+├── DESCRIPTION
+├── myDemoPkg.Rproj
+├── NAMESPACE
+└── R/
+</pre>
+* package names have to start with a letter and can only contain letters, numbers, and periods.
 
 ---
+# What are these files?
 
-```{r, echo = FALSE, out.width = "70%", fig.cap = "Falafel!", fig.alt = "Alt Text: A tan and white dog (retriever mix) is lying on a tile floor and looking up at the camera with his mouse open, seemingly happy. There is a food container on his body with the label 'Tzatziki' visible. (This is a visual pun on the dog's name, Falafel)"}
-knitr::include_graphics("image.jpg")
+* `.gitignore` tells git to NOT track certain files
+* `.Rbuildignore` tells R to NOT include certain files when building the package
+* `DESCRIPTION` contains basic metadata about the package
+* `myDemoPkg.Rproj` is the RStudio project
+* `NAMESPACE` lists the objects that are loaded with the package
+* `R/` contains R function definitions
+
+---
+# Building the Package
+
+* R Console
+```{r, eval = FALSE}
+devtools::install()
 ```
+
+.center[OR]
+
+* RStudio Build Pane
+```{r, echo = FALSE, fig.alt = "A cropped screenshot of the 'Build' Pane in the RStudio interface, showing a panel with tabs for 'Plots', 'Packages', 'Help, 'Build', and 'Viewer' on the left and buttons with the minimize and maximize icons on the right. The 'Build' tab is selected, showing 3 additional buttons at the top of the tab: 'Install and Restart' (with a hammer icon), 'Check' (with a checklist icon), and 'More' (with a gear icon and an arrow indicating a pulldown menu). There is a magenta oval around the 'Install and Restart' button."}
+knitr::include_graphics("rstudio_build.png", dpi = 200)
+```
+
+---
+# Fully Operational!
+
+* The package can be built and installed.
+* Next Steps:
+  - syncing to GitHub
+  - adding DESCRIPTION info
+  - adding data and code
+  - adding documentation
+  
+---
+class: inverse, middle, center
+
+# Syncing to GitHub
+
+---
+# Why GitHub?
+
+* Cloud-based backup of your new package
+  - private repos are only visible to whom you give access to
+* Supports installation from GitHub
+  ```{r, eval = FALSE}
+remotes::install_github("{username}/{repo}")
+# remotes::install_github("ha0ye/myDemoPkg")
+```
+  - private repos, too, IF you have a personal access token (PAT) set up appropriately
+  
+---
+# Setup (local)
+
+* Install Git and register a GitHub account - https://happygitwithr.com/install-intro.html
+
+* Create a Git repo for the project and make an initial commit
+```{r, eval = FALSE}
+usethis::use_git()
+```
+
+---
+# Setup (GitHub, via `usethis`)
+
+* Using a personal access token (PAT) that is setup with permissions to create repos
+```{r, eval = FALSE}
+usethis::use_github()
+```
+
+.center[OR]
+
+---
+# Setup (GitHub, manual)
+
+* create a new repository
+  - ideally same name as your package folder
+  - choose public or private
+  - SKIP initialization
+
+* RStudio, click "New Branch" on the "Git"Pane
+
+```{r, echo = FALSE, fig.alt = "A cropped screenshot of the 'Git' Pane in the RStudio interface, showing a panel with tabs for 'Files', 'Connections', 'Git', and 'Tutorial'. The 'Git' tab is selected, showing another row of buttons, including a button with an icon of a white diamond adjoined to 2 purple rectangles by straight lines. This button is centered in a magenta oval."}
+knitr::include_graphics("rstudio_new-branch.png", dpi = 200)
+```
+
+---
+# Setup (GitHub, manual)
+
+* Click "Add Remote"
+  - use `origin` for the "Remote Name"
+  - copy-paste URL from GitHub (shown after creating new repo) for "Remote URL"
+
+```{r, echo = FALSE, fig.alt = "A cropped screenshot of the 'Add Remote' dialog box in the RStudio interface, showing text boxes labeled 'Remote Name' and 'Remote URL', and buttons for 'Add' and 'Cancel'. The 'Remote Name' text box is filled with 'origin' and the 'Remote URL' text box is filled with 'git@github.com:ha0ye/myDemoPkg.git'"}
+knitr::include_graphics("rstudio_add-remote.png", dpi = 200)
+```
+
+---
+# Setup (GitHub, manual)
+
+* Choose the same "Branch Name" as your Git panel shows. 
+
+```{r, echo = FALSE, fig.alt = "A cropped screenshot of the 'Git' Pane in the RStudio interface, showing a panel with tabs for 'Files', 'Connections', 'Git', and 'Tutorial'. The 'Git' tab is selected, showing another row of buttons, including a text label of 'Master' with a pulldown menu icon. The screenshot also contains a dialog box, labeled 'New Branch', with a textbox 'Branch Name' also containing 'Master', a selection menu labeled 'Remote', a button to 'Add Remote...', a checked check box labeled 'Sync box with remote', and two buttons labeled 'Create' and 'Cancel'."}
+knitr::include_graphics("rstudio_branch-name.png", dpi = 200)
+```
+* Select "Overwrite" at the warning about a local branch already existing.
+
+---
+class: middle, center
+
+# Demo
+
+---
+# Workflow
+
+* update the package
+* commit the changes
+* push to GitHub
+
+---
+class: inverse, middle, center
+
+# Updating DESCRIPTION
+
+---
+# Parts of a DESCRIPTION
+
+* package name
+* 1 sentence title
+* version number
+* package authors
+* 1 paragraph description
+* license
+* dependencies
+
+---
+# Editing DESCRIPTION
+
+* most fields can be filled out by hand (just once)
+* a license determines how you allow other people to use it
+  - usethis has defaults built-in:
+  ```{r, eval = FALSE}
+usethis::use_mit_license()  
+```
+  - see also https://choosealicense.com/
+
+---
+# Adding Dependencies
+
+* For functions other than those in the `base` package, the package needs to be listed as a dependency, and the package referred to by `{pkg}::{fun}`.
+
+* The `use_package` function will add a package to the dependencies in `DESCRIPTION`.
+```{r, eval = FALSE}
+usethis::use_package("utils")
+```
+
+---
+class: middle, center
+
+# DEMO
+
+---
+class: inverse, middle, center
+
+# Data and Code
+
+---
+class: inverse, middle, center
+
+# Documentation
+
+
 
 ---
 # Thanks
