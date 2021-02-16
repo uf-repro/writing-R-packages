@@ -93,6 +93,7 @@ devtools::install()
 .center[OR]
 
 * RStudio Build Pane
+
 &lt;img src="rstudio_build.png" title="A cropped screenshot of the 'Build' Pane in the RStudio interface, showing a panel with tabs for 'Plots', 'Packages', 'Help, 'Build', and 'Viewer' on the left and buttons with the minimize and maximize icons on the right. The 'Build' tab is selected, showing 3 additional buttons at the top of the tab: 'Install and Restart' (with a hammer icon), 'Check' (with a checklist icon), and 'More' (with a gear icon and an arrow indicating a pulldown menu). There is a magenta oval around the 'Install and Restart' button." alt="A cropped screenshot of the 'Build' Pane in the RStudio interface, showing a panel with tabs for 'Plots', 'Packages', 'Help, 'Build', and 'Viewer' on the left and buttons with the minimize and maximize icons on the right. The 'Build' tab is selected, showing 3 additional buttons at the top of the tab: 'Install and Restart' (with a hammer icon), 'Check' (with a checklist icon), and 'More' (with a gear icon and an arrow indicating a pulldown menu). There is a magenta oval around the 'Install and Restart' button."  /&gt;
 
 ---
@@ -278,9 +279,10 @@ class: inverse, middle, center
 * R expects documentation to be written in a specific format, `.rd`, and stored in the `man/` folder
   - this is a pain.
 --
+
 * `roxygen2` adopts the idea of `doxygen` for R:
-  - functions are documented in the comments immediately prior
-  - code and documentation are in the same location - easier to maintain consistency
+  - code and documentation appear together (specific comments get turned into docs)
+  - easier to maintain consistency
 
 ---
 # Example
