@@ -1,6 +1,6 @@
 Package: lesson.template
 Title: An Introduction to Writing R Packages
-Version: 1.0.0
+Version: 1.0.1
 Authors@R: 
     person(given = "Hao",
            family = "Ye",
