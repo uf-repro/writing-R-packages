@@ -141,9 +141,10 @@ class: inverse, middle, center
 ---
 # Why GitHub?
 
+* NB other syncing solutions exists if you do not want to use GitHub (GitLab for instance), we restrict ourself to GitHub in this course. 
 * Cloud-based backup of your new package
   - private repos are only visible to whom you give access to
-* Supports installation from GitHub
+* Supports installation from R
   ```{r, eval = FALSE}
 remotes::install_github("{username}/{repo}")
 # remotes::install_github("ha0ye/myDemoPkg")
@@ -200,7 +201,7 @@ knitr::include_graphics("rstudio_add-remote.png", dpi = 200)
 
 * Choose the same "Branch Name" as your Git panel shows. 
 
-```{r, echo = FALSE, fig.alt = "A cropped screenshot of the 'Git' Pane in the RStudio interface, showing a panel with tabs for 'Files', 'Connections', 'Git', and 'Tutorial'. The 'Git' tab is selected, showing another row of buttons, including a text label of 'Master' with a pulldown menu icon. The screenshot also contains a dialog box, labeled 'New Branch', with a textbox 'Branch Name' also containing 'Master', a selection menu labeled 'Remote', a button to 'Add Remote...', a checked check box labeled 'Sync box with remote', and two buttons labeled 'Create' and 'Cancel'."}
+```{r, echo = FALSE, fig.alt = "A cropped screenshot of the 'Git' Pane in the RStudio interface, showing a panel with tabs for 'Files', 'Connections', 'Git', and 'Tutorial'. The 'Git' tab is selected, showing another row of buttons, including a text label of 'Main' with a pulldown menu icon. The screenshot also contains a dialog box, labeled 'New Branch', with a textbox 'Branch Name' also containing 'Main', a selection menu labeled 'Remote', a button to 'Add Remote...', a checked check box labeled 'Sync box with remote', and two buttons labeled 'Create' and 'Cancel'."}
 knitr::include_graphics("rstudio_branch-name.png", dpi = 200)
 ```
 * Select "Overwrite" at the warning about a local branch already existing.
@@ -351,7 +352,7 @@ class: inverse, middle, center
 * want a nice website for your package?  
   check out [`pkgdown`](https://testthat.r-lib.org/)
 * want tests and the pkgdown website to run automatically on github?
-  check out [github actions](https://github.com/r-lib/actions/tree/master/examples)
+  check out [github actions](https://github.com/r-lib/actions/tree/main/examples)
 ```{r, eval = FALSE}
 usethis::use_github_action("check-release")
 ```
