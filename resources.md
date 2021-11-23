@@ -1,6 +1,7 @@
 # Additional Resources / Readings
 
 ## R Packages for Writing R Packages
+**(Don't forget any cheatsheets!)**
 
 * ["devtools"](https://devtools.r-lib.org/)
   - The `devtools` package by Hadley Wickham, Jim Hester, and Winston Chang, with functions to simplify the tasks when developing R packages.
@@ -22,10 +23,13 @@
 * ["Happy Git and GitHub for the useR"](https://happygitwithr.com/)
   - Detailed instructions and workflows for installing Git, connecting it with GitHub, and configuring RStudio to work with Git and GitHub
 
+* ["Get help with GitHub personal access tokens"](https://usethis.r-lib.org/reference/github-token.html)
+  - Information about setting up a GitHub personal access token, from the `usethis` documentation.
+
 * ["GitHub Actions for R"](https://www.jimhester.com/talk/2020-rsc-github-actions/)
   - Jim Hester's talk from RStudio Conf 2020 on GitHub Actions
 
-* ["Example workflows"](https://github.com/r-lib/actions/tree/master/examples)
+* ["Example Github Action scripts"](https://github.com/r-lib/actions/tree/master/examples)
   - Example workflows for checking packages using GitHub Actions
 
 * ["A Friendly Introduction to Github for Project Version Control"](https://uf-repro.github.io/friendly-github-intro/)

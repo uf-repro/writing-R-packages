@@ -52,7 +52,7 @@ class: inverse, center, middle
 ---
 # Motivations
 
-R packages are the primary means of bundling R code and facilitate many use cases, including:
+R packages are the primary means of bundling R code. Packages have many use cases, including:
 
 * re-using code or data across projects
 * writing open source software
@@ -73,12 +73,17 @@ class: inverse, center, middle
 ---
 # Setup
 
-Before getting started, we want some tools that help make creating packages easier.
+Before getting started, there are some tools to install to make creating packages easier.
 
 ```{r, eval = FALSE}
-install.packages(c("devtools", "roxygen2", 
-                   "testthat", "knitr"))
+install.packages(c("devtools", 
+                   "usethis"
+                   "roxygen2", 
+                   "knitr"))
 ```
+
+--
+I recommend using **`RStudio`** as a development environment.
 
 ---
 # Creating a new R package
@@ -86,6 +91,9 @@ install.packages(c("devtools", "roxygen2",
 ```{r, eval = FALSE}
 devtools::create("myDemoPkg")
 ```
+
+* package names have to start with a letter and can only contain letters, numbers, and periods.
+
 <pre class = "hljs remark-code">
 myDemoPkg
 ├── .gitignore
@@ -95,23 +103,22 @@ myDemoPkg
 ├── NAMESPACE
 └── R/
 </pre>
-* package names have to start with a letter and can only contain letters, numbers, and periods.
 
 ---
 # What are these files?
 
 * `.gitignore` tells git to NOT track certain files
 * `.Rbuildignore` tells R to NOT include certain files when building the package
-* `DESCRIPTION` contains basic metadata about the package
+* `DESCRIPTION` contains basic metadata
 * `myDemoPkg.Rproj` is the RStudio project
-* `NAMESPACE` lists the objects that are loaded with the package
-* `R/` contains R function definitions
+* `NAMESPACE` lists the objects to load with the package
+* `R/` contains the R code
 
 ---
 # Building the Package
 
 * R Console
-```{r, eval = FALSE}
+  ```{r, eval = FALSE}
 devtools::install()
 ```
 
@@ -119,14 +126,19 @@ devtools::install()
 
 * RStudio Build Pane
 
-```{r, echo = FALSE, fig.alt = "A cropped screenshot of the 'Build' Pane in the RStudio interface, showing a panel with tabs for 'Plots', 'Packages', 'Help, 'Build', and 'Viewer' on the left and buttons with the minimize and maximize icons on the right. The 'Build' tab is selected, showing 3 additional buttons at the top of the tab: 'Install and Restart' (with a hammer icon), 'Check' (with a checklist icon), and 'More' (with a gear icon and an arrow indicating a pulldown menu). There is a magenta oval around the 'Install and Restart' button."}
+```{r, echo = FALSE, out.width = "70%"}
+#| fig.alt = "A cropped screenshot of the 'Build' Pane in the RStudio interface, showing a panel with tabs for 'Plots', 'Packages', 'Help, 'Build', and 'Viewer' on the left and buttons with the minimize and maximize icons on the right. The 'Build' tab is selected, showing 3 additional buttons at the top of the tab: 'Install and Restart' (with a hammer icon), 'Check' (with a checklist icon), and 'More' (with a gear icon and an arrow indicating a pulldown menu). There is a magenta oval around the 'Install and Restart' button."
 knitr::include_graphics("rstudio_build.png", dpi = 200)
 ```
 
 ---
+class: middle, center
+
+# Demo
+
+---
 # Fully Operational!
 
-* The package can be built and installed.
 * Next Steps:
   - syncing to GitHub
   - adding DESCRIPTION info
@@ -148,25 +160,25 @@ class: inverse, middle, center
 remotes::install_github("{username}/{repo}")
 # remotes::install_github("ha0ye/myDemoPkg")
 ```
-  - private repos, too, IF you have a personal access token (PAT) set up appropriately
   
 ---
 # Setup (local)
 
 * Install Git and register a GitHub account - https://happygitwithr.com/install-intro.html
 
-* Create a Git repo for the project and make an initial commit
-```{r, eval = FALSE}
+* Establish a Git repo for the project and make an initial commit
+  ```{r, eval = FALSE}
 usethis::use_git()
 ```
 
 ---
 # Setup (GitHub, via `usethis`)
 
-* Using a personal access token (PAT) that is setup with permissions to create repos
-```{r, eval = FALSE}
+* Using a personal access token (PAT) that has permissions to create repos
+  ```{r, eval = FALSE}
 usethis::use_github()
 ```
+  (see https://usethis.r-lib.org/reference/github-token.html for more info on tokens)
 
 .center[OR]
 
@@ -180,7 +192,8 @@ usethis::use_github()
 
 * RStudio, click "New Branch" on the "Git"Pane
 
-```{r, echo = FALSE, fig.alt = "A cropped screenshot of the 'Git' Pane in the RStudio interface, showing a panel with tabs for 'Files', 'Connections', 'Git', and 'Tutorial'. The 'Git' tab is selected, showing another row of buttons, including a button with an icon of a white diamond adjoined to 2 purple rectangles by straight lines. This button is centered in a magenta oval."}
+```{r, echo = FALSE, out.width = "70%"}
+#| fig.alt = "A cropped screenshot of the 'Git' Pane in the RStudio interface, showing a panel with tabs for 'Files', 'Connections', 'Git', and 'Tutorial'. The 'Git' tab is selected, showing another row of buttons, including a button with an icon of a white diamond adjoined to 2 purple rectangles by straight lines. This button is centered in a magenta oval."
 knitr::include_graphics("rstudio_new-branch.png", dpi = 200)
 ```
 
@@ -191,19 +204,20 @@ knitr::include_graphics("rstudio_new-branch.png", dpi = 200)
   - use `origin` for the "Remote Name"
   - copy-paste URL from GitHub (shown after creating new repo) for "Remote URL"
 
-```{r, echo = FALSE, fig.alt = "A cropped screenshot of the 'Add Remote' dialog box in the RStudio interface, showing text boxes labeled 'Remote Name' and 'Remote URL', and buttons for 'Add' and 'Cancel'. The 'Remote Name' text box is filled with 'origin' and the 'Remote URL' text box is filled with 'git@github.com:ha0ye/myDemoPkg.git'"}
+```{r, echo = FALSE, out.width = "70%"}
+#| fig.alt = "A cropped screenshot of the 'Add Remote' dialog box in the RStudio interface, showing text boxes labeled 'Remote Name' and 'Remote URL', and buttons for 'Add' and 'Cancel'. The 'Remote Name' text box is filled with 'origin' and the 'Remote URL' text box is filled with 'git@github.com:ha0ye/myDemoPkg.git'"
 knitr::include_graphics("rstudio_add-remote.png", dpi = 200)
 ```
 
 ---
 # Setup (GitHub, manual)
 
-* Choose the same "Branch Name" as your Git panel shows. 
-
-```{r, echo = FALSE, fig.alt = "A cropped screenshot of the 'Git' Pane in the RStudio interface, showing a panel with tabs for 'Files', 'Connections', 'Git', and 'Tutorial'. The 'Git' tab is selected, showing another row of buttons, including a text label of 'Master' with a pulldown menu icon. The screenshot also contains a dialog box, labeled 'New Branch', with a textbox 'Branch Name' also containing 'Master', a selection menu labeled 'Remote', a button to 'Add Remote...', a checked check box labeled 'Sync box with remote', and two buttons labeled 'Create' and 'Cancel'."}
+* Choose the same "Branch Name".  
+(Select "Overwrite" at the warning about a local branch already existing.)
+```{r, echo = FALSE, out.width = "70%"}
+#| fig.alt = "A cropped screenshot of the 'Git' Pane in the RStudio interface, showing a panel with tabs for 'Files', 'Connections', 'Git', and 'Tutorial'. The 'Git' tab is selected, showing another row of buttons, including a text label of 'Master' with a pulldown menu icon. The screenshot also contains a dialog box, labeled 'New Branch', with a textbox 'Branch Name' also containing 'Master', a selection menu labeled 'Remote', a button to 'Add Remote...', a checked check box labeled 'Sync box with remote', and two buttons labeled 'Create' and 'Cancel'."
 knitr::include_graphics("rstudio_branch-name.png", dpi = 200)
 ```
-* Select "Overwrite" at the warning about a local branch already existing.
 
 ---
 class: middle, center
@@ -213,7 +227,7 @@ class: middle, center
 ---
 # Workflow
 
-* update the package
+* work on the package
 * commit the changes
 * push to GitHub
 
@@ -236,7 +250,8 @@ class: inverse, middle, center
 ---
 # Editing DESCRIPTION
 
-* most fields can be filled out by hand (just once)
+* plaintext file
+* you only need to fill out most fields once
 * a license determines how you allow other people to use it
   - usethis has defaults built-in:
   ```{r, eval = FALSE}
@@ -247,7 +262,8 @@ usethis::use_mit_license()
 ---
 # Adding Dependencies
 
-* For functions other than those in the `base` package, the package needs to be listed as a dependency, and the package referred to by `{pkg}::{fun}`.
+* Any packages that you use code from, other than the `base` package, need to be listed as dependencies.
+* Functions from those other packages need to be referred to by `{pkg}::{fun}`.
 
 * The `use_package` function will add a package to the dependencies in `DESCRIPTION`.
 ```{r, eval = FALSE}
@@ -275,7 +291,13 @@ f <- function(df)
 # Exporting functions
 
 * `NAMESPACE` needs to include the names of objects to be loaded alongside the package.
-* Adding a special comment allows us to call `devtools::document()` to modify `NAMESPACE`:
+* Rather than modify the `NAMESPACE` file directly, it is preferable to use **`devtools`** and **`roxygen2`** to create `NAMESPACE` for us.
+* We add specially formatted comments around our code, and then call `devtools::document()` to generate the documentation files.
+
+---
+# Updating NAMESPACE
+
+* Adding `#' @export` right before an object will include it in `NAMESPACE`:
 ```{r, eval = FALSE}
 #' @export
 f <- function(df)
@@ -296,7 +318,7 @@ usethis::use_data(dat) # no quotes
 ---
 class: inverse, middle, center
 
-# Documentation
+# Documenting Code
 
 ---
 # roxygen2
@@ -326,7 +348,7 @@ f <- function(df)
 ---
 # Data
 
-* Datasets can be documented, usually within `data.R`:
+* Datasets can be documented, usually within the `data.R` file:
 ```{r, eval = FALSE}
 #' Example data.frame
 #'
