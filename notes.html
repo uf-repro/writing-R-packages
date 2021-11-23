@@ -140,12 +140,13 @@ myDemoPkg
 <div class="section level2">
 <h2 id="syncing-to-github">Syncing to GitHub<a class="anchor" aria-label="anchor" href="#syncing-to-github"></a></h2>
 <ul><li>Why GitHub?
-<ul><li>
+<ul><li><p>note: other cloud services exist (e.g. GitLab) – we restrict ourself to GitHub in this course</p></li>
+<li>
 <p>Cloud-based backup of your new package</p>
 <ul><li>private repos are only visible to whom you give access to</li>
 </ul></li>
 <li>
-<p>Supports installation from GitHub</p>
+<p>Supports installation from R</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"{username}/{repo}"</span><span class="op">)</span>
 <span class="co"># remotes::install_github("ha0ye/myDemoPkg")</span></code></pre></div>
@@ -183,7 +184,7 @@ myDemoPkg
 </ul></li>
 <li>Setup (GitHub, manual)
 <ul><li>Choose the same “Branch Name”.<br>
-(Select “Overwrite” at the warning about a local branch already existing.) <img src="rstudio_branch-name.png" title="A cropped screenshot of the 'Git' Pane in the RStudio interface, showing a panel with tabs for 'Files', 'Connections', 'Git', and 'Tutorial'. The 'Git' tab is selected, showing another row of buttons, including a text label of 'Master' with a pulldown menu icon. The screenshot also contains a dialog box, labeled 'New Branch', with a textbox 'Branch Name' also containing 'Master', a selection menu labeled 'Remote', a button to 'Add Remote...', a checked check box labeled 'Sync box with remote', and two buttons labeled 'Create' and 'Cancel'." alt="A cropped screenshot of the 'Git' Pane in the RStudio interface, showing a panel with tabs for 'Files', 'Connections', 'Git', and 'Tutorial'. The 'Git' tab is selected, showing another row of buttons, including a text label of 'Master' with a pulldown menu icon. The screenshot also contains a dialog box, labeled 'New Branch', with a textbox 'Branch Name' also containing 'Master', a selection menu labeled 'Remote', a button to 'Add Remote...', a checked check box labeled 'Sync box with remote', and two buttons labeled 'Create' and 'Cancel'." width="70%"></li>
+(Select “Overwrite” at the warning about a local branch already existing.) <img src="rstudio_branch-name.png" title="A cropped screenshot of the 'Git' Pane in the RStudio interface, showing a panel with tabs for 'Files', 'Connections', 'Git', and 'Tutorial'. The 'Git' tab is selected, showing another row of buttons, including a text label 'Main' with a pulldown menu icon. The screenshot also contains a dialog box, labeled 'New Branch', with a textbox 'Branch Name' also containing 'Main', a selection menu labeled 'Remote', a button to 'Add Remote...', a checked check box labeled 'Sync box with remote', and two buttons labeled 'Create' and 'Cancel'." alt="A cropped screenshot of the 'Git' Pane in the RStudio interface, showing a panel with tabs for 'Files', 'Connections', 'Git', and 'Tutorial'. The 'Git' tab is selected, showing another row of buttons, including a text label 'Main' with a pulldown menu icon. The screenshot also contains a dialog box, labeled 'New Branch', with a textbox 'Branch Name' also containing 'Main', a selection menu labeled 'Remote', a button to 'Add Remote...', a checked check box labeled 'Sync box with remote', and two buttons labeled 'Create' and 'Cancel'." width="70%"></li>
 </ul></li>
 <li>Demo</li>
 <li>Workflow
@@ -302,7 +303,7 @@ check out <a href="https://testthat.r-lib.org/" class="external-link"><code>test
 <li>want a nice website for your package?<br>
 check out <a href="https://testthat.r-lib.org/" class="external-link"><code>pkgdown</code></a>
 </li>
-<li>want tests and the pkgdown website to run automatically on github? check out <a href="https://github.com/r-lib/actions/tree/master/examples" class="external-link">github actions</a>
+<li>want tests and the pkgdown website to run automatically on github? check out <a href="https://github.com/r-lib/actions/tree/main/examples" class="external-link">github actions</a>
 </li>
 </ul><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">usethis</span><span class="fu">::</span><span class="fu">use_github_action</span><span class="op">(</span><span class="st">"check-release"</span><span class="op">)</span></code></pre></div>
