@@ -3,3 +3,6 @@
 .RData
 .Ruserdata
 docs/
+slides/slides.html
+slides/libs/
+slides/xaringan-themer.css
