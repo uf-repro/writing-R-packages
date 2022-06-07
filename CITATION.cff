@@ -1,0 +1,137 @@
+# -----------------------------------------------------------
+# CITATION file created with {cffr} R package, v0.2.2
+# See also: https://docs.ropensci.org/cffr/
+# -----------------------------------------------------------
+ 
+cff-version: 1.2.0
+message: 'To cite package "writing.R.packages" in publications use:'
+type: lesson
+license: CC-BY-4.0
+title: 'writing.R.packages: An Introduction to Writing R Packages'
+version: 1.1.1
+abstract: R packages are a powerful way to share code and data across your individual
+  projects, with colleagues, or even with the broader scientific community. They can
+  also form the basis for a Research Compendium to share data analysis work reproducibly.
+  This workshop will introduce the basics of creating custom R packages for personal
+  use and for sharing!
+authors:
+- family-names: Ye
+  given-names: Hao
+  email: haoye@ufl.edu
+  orcid: https://orcid.org/0000-0002-8630-1458
+preferred-citation:
+  type: manual
+  title: 'writing.R.packages: An Introduction to Writing R Packages'
+  authors:
+  - family-names: Ye
+    given-names: Hao
+    email: haoye@ufl.edu
+    orcid: https://orcid.org/0000-0002-8630-1458
+  version: 1.1.1
+  abstract: R packages are a powerful way to share code and data across your individual
+    projects, with colleagues, or even with the broader scientific community. They
+    can also form the basis for a Research Compendium to share data analysis work
+    reproducibly. This workshop will introduce the basics of creating custom R packages
+    for personal use and for sharing!
+  repository-code: https://github.com/uf-repro/writing-R-packages/
+  url: https://github.com/uf-repro/writing-R-packages/
+  contact:
+  - family-names: Ye
+    given-names: Hao
+    email: haoye@ufl.edu
+    orcid: https://orcid.org/0000-0002-8630-1458
+  keywords:
+  - Open Educational Resources
+  - Research Support Skills
+  - Version Control
+  - Workshop
+  - Software Development
+  - R package
+  license: CC-BY-4.0
+  year: '2022'
+repository-code: https://github.com/uf-repro/writing-R-packages/
+url: https://github.com/uf-repro/writing-R-packages/
+contact:
+- family-names: Ye
+  given-names: Hao
+  email: haoye@ufl.edu
+  orcid: https://orcid.org/0000-0002-8630-1458
+keywords:
+- Open Educational Resources
+- Research Support Skills
+- Version Control
+- Workshop
+- Software Development
+- R package
+references:
+- type: software
+  title: desc
+  abstract: 'desc: Manipulate DESCRIPTION Files'
+  notes: Imports
+  authors:
+  - family-names: Csárdi
+    given-names: Gábor
+    email: csardi.gabor@gmail.com
+  - family-names: Müller
+    given-names: Kirill
+  - family-names: Hester
+    given-names: Jim
+    email: james.f.hester@gmail.com
+  year: '2022'
+  url: https://CRAN.R-project.org/package=desc
+- type: software
+  title: jsonlite
+  abstract: 'jsonlite: A Simple and Robust JSON Parser and Generator for R'
+  notes: Imports
+  authors:
+  - family-names: Ooms
+    given-names: Jeroen
+    email: jeroen@berkeley.edu
+    orcid: https://orcid.org/0000-0002-4035-0289
+  year: '2022'
+  url: https://CRAN.R-project.org/package=jsonlite
+- type: software
+  title: knitr
+  abstract: 'knitr: A General-Purpose Package for Dynamic Report Generation in R'
+  notes: Imports
+  authors:
+  - family-names: Xie
+    given-names: Yihui
+    email: xie@yihui.name
+    orcid: https://orcid.org/0000-0003-0645-5666
+  year: '2022'
+  url: https://yihui.org/knitr/
+  version: '>= 1.31'
+- type: software
+  title: showtext
+  abstract: 'showtext: Using Fonts More Easily in R Graphs'
+  notes: Imports
+  authors:
+  - family-names: Qiu
+    given-names: Yixuan
+  - family-names: details.
+    given-names: authors/contributors of the included software. See file AUTHORS for
+  year: '2022'
+  url: https://CRAN.R-project.org/package=showtext
+- type: software
+  title: xaringan
+  abstract: 'xaringan: Presentation Ninja'
+  notes: Imports
+  authors:
+  - family-names: Xie
+    given-names: Yihui
+    email: xie@yihui.name
+    orcid: https://orcid.org/0000-0003-0645-5666
+  year: '2022'
+  url: https://CRAN.R-project.org/package=xaringan
+- type: software
+  title: xaringanthemer
+  abstract: 'xaringanthemer: Custom ''xaringan'' CSS Themes'
+  notes: Imports
+  authors:
+  - family-names: Aden-Buie
+    given-names: Garrick
+    email: garrick@adenbuie.com
+    orcid: https://orcid.org/0000-0002-7111-0077
+  year: '2022'
+  url: https://CRAN.R-project.org/package=xaringanthemer
