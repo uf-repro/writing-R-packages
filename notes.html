@@ -59,7 +59,7 @@
     </div>
 
 <div id="syllabus" class="section level1">
-<p>Hao Ye Health Science Center Libraries, University of Florida (updated: 2022-06-07)</p>
+<p>Hao Ye Health Science Center Libraries, University of Florida (updated: 2022-07-19)</p>
 <div class="section level2">
 <h2 id="intro">Intro<a class="anchor" aria-label="anchor" href="#intro"></a></h2>
 <ul><li>Motivations R packages are the primary means of bundling R code. Packages have many use cases, including:<ul><li>re-using code or data across projects</li>
@@ -85,7 +85,7 @@
 <li>
 <p>Creating a new R package</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">devtools</span><span class="fu">::</span><span class="fu">create</span><span class="op">(</span><span class="st">"myDemoPkg"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">create</span><span class="op">(</span><span class="st">"myDemoPkg"</span><span class="op">)</span></span></code></pre></div>
 <ul><li>package names have to start with a letter and can only contain letters, numbers, and periods.<pre class="hljs remark-code">
 myDemoPkg
 ├── .gitignore
@@ -116,7 +116,7 @@ myDemoPkg
 <ul><li>
 <p>R Console</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install</span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>OR</p>
 </li>
 <li><p>RStudio Build Pane <img src="rstudio_build.png" title="A cropped screenshot of the 'Build' Pane in the RStudio interface, showing a panel with tabs for 'Plots', 'Packages', 'Help, 'Build', and 'Viewer' on the left and buttons with the minimize and maximize icons on the right. The 'Build' tab is selected, showing 3 additional buttons at the top of the tab: 'Install and Restart' (with a hammer icon), 'Check' (with a checklist icon), and 'More' (with a gear icon and an arrow indicating a pulldown menu). There is a magenta oval around the 'Install and Restart' button." alt="A cropped screenshot of the 'Build' Pane in the RStudio interface, showing a panel with tabs for 'Plots', 'Packages', 'Help, 'Build', and 'Viewer' on the left and buttons with the minimize and maximize icons on the right. The 'Build' tab is selected, showing 3 additional buttons at the top of the tab: 'Install and Restart' (with a hammer icon), 'Check' (with a checklist icon), and 'More' (with a gear icon and an arrow indicating a pulldown menu). There is a magenta oval around the 'Install and Restart' button." width="70%"></p></li>
@@ -139,21 +139,21 @@ myDemoPkg
 <li>
 <p>Supports installation from R</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"{username}/{repo}"</span><span class="op">)</span>
-<span class="co"># remotes::install_github("ha0ye/myDemoPkg")</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"{username}/{repo}"</span><span class="op">)</span></span>
+<span><span class="co"># remotes::install_github("ha0ye/myDemoPkg")</span></span></code></pre></div>
 </li>
 </ul></li>
 <li>Setup (local)<ul><li><p>Install Git and register a GitHub account - <a href="https://happygitwithr.com/install-intro.html" class="external-link uri">https://happygitwithr.com/install-intro.html</a></p></li>
 <li>
 <p>Establish a Git repo for the project and make an initial commit</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">usethis</span><span class="fu">::</span><span class="fu">use_git</span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">use_git</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 </li>
 </ul></li>
 <li>Setup (GitHub, via <code>usethis</code>)<ul><li>
 <p>Using a personal access token (PAT) that has permissions to create repos</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">usethis</span><span class="fu">::</span><span class="fu">use_github</span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">use_github</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>(see <a href="https://usethis.r-lib.org/reference/github-token.html" class="external-link uri">https://usethis.r-lib.org/reference/github-token.html</a> for more info on tokens) OR</p>
 </li></ul></li>
 <li>Setup (GitHub, manual)<ul><li>create a new repository<ul><li>ideally same name as your package folder</li>
@@ -186,7 +186,7 @@ myDemoPkg
 <li>Editing DESCRIPTION<ul><li>plaintext file</li>
 <li>you only need to fill out most fields once</li>
 <li>a license determines how you allow other people to use it<ul><li>usethis has defaults built-in:</li></ul><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">usethis</span><span class="fu">::</span><span class="fu">use_mit_license</span><span class="op">(</span><span class="op">)</span>  </code></pre></div>
+<code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">use_mit_license</span><span class="op">(</span><span class="op">)</span>  </span></code></pre></div>
 <ul><li>see also <a href="https://choosealicense.com/" class="external-link uri">https://choosealicense.com/</a>
 </li></ul></li>
 </ul></li>
@@ -194,16 +194,16 @@ myDemoPkg
 <li>Functions from those other packages need to be referred to by <code>{pkg}::{fun}</code>.</li>
 <li>The <code>use_package</code> function will add a package to the dependencies in <code>DESCRIPTION</code>.</li>
 </ul><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">usethis</span><span class="fu">::</span><span class="fu">use_package</span><span class="op">(</span><span class="st">"utils"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">use_package</span><span class="op">(</span><span class="st">"utils"</span><span class="op">)</span></span></code></pre></div>
 </li>
 </ul></div>
 <div class="section level2">
 <h2 id="data-and-code">Data and Code<a class="anchor" aria-label="anchor" href="#data-and-code"></a></h2>
 <ul><li>Code<ul><li>Create functions in files within the <code>R/</code> folder.</li></ul><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">f</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">df</span><span class="op">)</span>
-<span class="op">{</span>
-  <span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span>
-<span class="op">}</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">f</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span>
+<span><span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div>
 </li>
 <li>Exporting functions<ul><li>
 <code>NAMESPACE</code> needs to include the names of objects to be loaded alongside the package.</li>
@@ -211,15 +211,15 @@ myDemoPkg
 <li>We add specially formatted comments around our code, and then call <code>devtools::document()</code> to generate the documentation files.</li>
 </ul></li>
 <li>Updating NAMESPACE<ul><li>Adding <code>#' @export</code> right before an object will include it in <code>NAMESPACE</code>:</li></ul><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#' @export</span>
-<span class="va">f</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">df</span><span class="op">)</span>
-<span class="op">{</span>
-  <span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span>
-<span class="op">}</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">#' @export</span></span>
+<span><span class="va">f</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span>
+<span><span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div>
 </li>
 <li>Adding datasets<ul><li>Use <code>usethis::use_data()</code> to export a dataset to a file and add that file to the package:</li></ul><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, y <span class="op">=</span> <span class="fl">5</span><span class="op">:</span><span class="fl">7</span><span class="op">)</span>
-<span class="fu">usethis</span><span class="fu">::</span><span class="fu">use_data</span><span class="op">(</span><span class="va">dat</span><span class="op">)</span> <span class="co"># no quotes</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, y <span class="op">=</span> <span class="fl">5</span><span class="op">:</span><span class="fl">7</span><span class="op">)</span></span>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">use_data</span><span class="op">(</span><span class="va">dat</span><span class="op">)</span> <span class="co"># no quotes</span></span></code></pre></div>
 </li>
 </ul></div>
 <div class="section level2">
@@ -235,26 +235,26 @@ myDemoPkg
 <li>
 <p>Example</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#' Get the column names of a data.frame</span>
-<span class="co">#' @param df A data.frame</span>
-<span class="co">#' @return a character vector</span>
-<span class="co">#' @export</span>
-<span class="va">f</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">df</span><span class="op">)</span>
-<span class="op">{</span>
-  <span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span>
-<span class="op">}</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">#' Get the column names of a data.frame</span></span>
+<span><span class="co">#' @param df A data.frame</span></span>
+<span><span class="co">#' @return a character vector</span></span>
+<span><span class="co">#' @export</span></span>
+<span><span class="va">f</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span>
+<span><span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div>
 </li>
 <li>
 <p>Data</p>
 <ul><li>Datasets can be documented, usually within the <code>data.R</code> file:</li></ul><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#' Example data.frame</span>
-<span class="co">#'</span>
-<span class="co">#' @format A data frame with 3 rows and 2 variables:</span>
-<span class="co">#' \describe{</span>
-<span class="co">#'   \item{x}{some numbers}</span>
-<span class="co">#'   \item{y}{some other numbers}</span>
-<span class="co">#' }</span>
-<span class="st">"dat"</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">#' Example data.frame</span></span>
+<span><span class="co">#'</span></span>
+<span><span class="co">#' @format A data frame with 3 rows and 2 variables:</span></span>
+<span><span class="co">#' \describe{</span></span>
+<span><span class="co">#'   \item{x}{some numbers}</span></span>
+<span><span class="co">#'   \item{y}{some other numbers}</span></span>
+<span><span class="co">#' }</span></span>
+<span><span class="st">"dat"</span></span></code></pre></div>
 </li>
 </ul></div>
 <div class="section level2">
@@ -268,7 +268,7 @@ check out <a href="https://testthat.r-lib.org/" class="external-link"><code>pkgd
 <li>want tests and the pkgdown website to run automatically on github? check out <a href="https://github.com/r-lib/actions/tree/main/examples" class="external-link">github actions</a>
 </li>
 </ul><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">usethis</span><span class="fu">::</span><span class="fu">use_github_action</span><span class="op">(</span><span class="st">"check-release"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">use_github_action</span><span class="op">(</span><span class="st">"check-release"</span><span class="op">)</span></span></code></pre></div>
 </li></ul></div>
 <div class="section level2">
 <h2 id="research-compendia">Research Compendia<a class="anchor" aria-label="anchor" href="#research-compendia"></a></h2>
@@ -313,7 +313,7 @@ check out <a href="https://testthat.r-lib.org/" class="external-link"><code>pkgd
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.9000.</p>
 </div>
 
       </footer></div>
