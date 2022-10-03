@@ -34,6 +34,9 @@
 
 * ["A Friendly Introduction to Github for Project Version Control"](https://uf-repro.github.io/friendly-github-intro/)
   - Lesson materials from Hao Ye, introducing GitHub
+
+* ["Issuing a persistent identifier for your repository with Zenodo"](https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content)
+  - Instructions on archiving your repository to Zenodo, to get a DOI
   
 ## Readings
 
